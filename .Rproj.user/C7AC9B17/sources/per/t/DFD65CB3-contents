@@ -1,0 +1,14 @@
+Package: conforest
+Type: Package
+Title: Conformal Random Forests for Response Surface Emulation
+Version: 1.0.0
+Author: Kellin Rumsey
+Maintainer: Kellin Rumsey <knrumsey@lanl.gov>
+Description: This package fits emulators (also known as surrogates or response surfaces) using conformal inference with random forests. 
+    The conformal calibration is performed using out-of-bag samples from the forest, eliminating the need for a separate hold-out set.
+License: GPL-3
+Encoding: UTF-8
+Imports: 
+    randomForest,
+    RANN
+RoxygenNote: 7.3.2
