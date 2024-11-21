@@ -28,12 +28,16 @@ knitr::include_graphics("inst/logo/CONFOREST.png")
 
 ### Description 
 
-https://link.springer.com/content/pdf/10.1007/s10994-014-5453-0.pdf
 
-The `conforest` package is an efficient implementation of the method referred to as RFoK, which fits a random forest (RF) using conformal inference without needing a validation set. Instead, conformity scores are estimated using out-of-bag instances. The nonconformity function for observation $i$ is
+
+The `conforest` package is an efficient implementation of the method referred to as RFoK in [Johansson et al. (2014)](https://link.springer.com/content/pdf/10.1007/s10994-014-5453-0.pdf). This method fits a random forest (RF) using conformal inference without needing a validation set. Instead, conformity scores are estimated using out-of-bag instances. The nonconformity function for observation $i$ is
+
 $$\alpha_i = \frac{|y_i - \hat y(x_i|x_\text{oob})|}{\exp(\mu_i)+\beta}.$$
+
 Where $\beta$ controls the sensitivity of the nonconformity measure (with default `beta = sd(y)/30`) and $\mu_i$ is the $k$-nearest neighbors estimate of $\log(|y_i - \hat y(x_i|x_\text{oob})|)$. The prediction interval at a new location $x_j$ is given by 
+
 $$\hat y_j(x_j) \pm \alpha_C \exp(\mu_j + \beta),$$
+
 where $\alpha_C$ is the $C^{th}$ quantile of the observed conformity scores and $\mu_j$ is the KNN estimate based on $x_j$'s nearest neighbors in the training set. 
 
 
